@@ -1,7 +1,9 @@
 package com.simplec.phonegap.plugins.videosettings;
 
 import org.apache.cordova.CordovaInterface;
+
 import android.util.Log;
+import android.webkit.WebView;
 import android.os.Build;
 
 import org.apache.cordova.CordovaWebView;
@@ -13,6 +15,13 @@ public class AndroidMediaGestureSetting extends CordovaPlugin {
 
 
     public void initialize(CordovaInterface cordova, CordovaWebView webView) {
+    	try {
+	        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+	        	WebView.enableSlowWholeDocumentDraw();
+	        }
+    	} catch (Exception e) {
+    		
+    	}
         super.initialize(cordova, webView);
         
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
@@ -20,6 +29,5 @@ public class AndroidMediaGestureSetting extends CordovaPlugin {
 	
 	        Log.d(LOG_TAG, "setMediaPlaybackRequiresUserGesture: FALSE");
         }
-
     }
 }
