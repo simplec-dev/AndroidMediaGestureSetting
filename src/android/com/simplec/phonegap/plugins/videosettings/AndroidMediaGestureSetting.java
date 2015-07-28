@@ -18,6 +18,7 @@ public class AndroidMediaGestureSetting extends CordovaPlugin {
     	try {
 	        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
 	        	WebView.enableSlowWholeDocumentDraw();
+		        Log.d(LOG_TAG, "enableSlowWholeDocumentDraw()");
 	        }
     	} catch (Exception e) {
     		
