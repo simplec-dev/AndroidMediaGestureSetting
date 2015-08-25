@@ -19,6 +19,8 @@ public class AndroidMediaGestureSetting extends CordovaPlugin {
 	        webView.getSettings().setMediaPlaybackRequiresUserGesture(false);
 	
 	        Log.d(LOG_TAG, "setMediaPlaybackRequiresUserGesture: FALSE");
+        } else {
+	        Log.d(LOG_TAG, "setMediaPlaybackRequiresUserGesture: COULD NOT RUN");
         }
     }
 }
