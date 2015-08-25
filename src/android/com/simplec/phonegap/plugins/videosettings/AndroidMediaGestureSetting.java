@@ -3,6 +3,7 @@ package com.simplec.phonegap.plugins.videosettings;
 import org.apache.cordova.CordovaInterface;
 
 import android.util.Log;
+import android.view.View;
 import android.webkit.WebView;
 import android.os.Build;
 
@@ -23,6 +24,14 @@ public class AndroidMediaGestureSetting extends CordovaPlugin {
     	} catch (Exception e) {
     		
     	}
+
+    	try {
+    		webView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_HIDE_NAVIGATION); 
+	        Log.d(LOG_TAG, "tried hiding bar");
+    	} catch (Exception e) {
+	        Log.d(LOG_TAG, "hiding bar failed: "+e.getMessage());
+    	}
+		
         super.initialize(cordova, webView);
         
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
