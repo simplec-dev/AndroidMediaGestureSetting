@@ -25,14 +25,5 @@ public class AndroidMediaGestureSetting extends CordovaPlugin {
 	        Log.d(LOG_TAG, "setMediaPlaybackRequiresUserGesture: COULD NOT RUN");
         }
         
-        try {
-	        webView.setLayerType(View.LAYER_TYPE_HARDWARE, null);
-	        webView.getSettings().setRenderPriority(WebSettings.RenderPriority.HIGH);
-
-	        Log.d(LOG_TAG, "hardware acceleration set");
-        } catch (Exception e) {
-        	e.printStackTrace();
-	        Log.d(LOG_TAG, "hardware acceleration failed");
-        }
     }
 }
