@@ -6,7 +6,6 @@ import org.apache.cordova.CordovaWebView;
 
 import android.os.Build;
 import android.util.Log;
-import android.webkit.WebView;
 
 public class AndroidMediaGestureSetting extends CordovaPlugin {
 
@@ -14,15 +13,6 @@ public class AndroidMediaGestureSetting extends CordovaPlugin {
 
 
     public void initialize(CordovaInterface cordova, CordovaWebView webView) {
-    	try {
-	        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-	        	WebView.enableSlowWholeDocumentDraw();
-		        Log.d(LOG_TAG, "enableSlowWholeDocumentDraw()");
-	        }
-    	} catch (Exception e) {
-    		
-    	}
-		
         super.initialize(cordova, webView);
         
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
