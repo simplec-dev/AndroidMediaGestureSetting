@@ -1,14 +1,15 @@
 package com.simplec.phonegap.plugins.videosettings;
 
 import org.apache.cordova.CordovaInterface;
+import org.apache.cordova.CordovaPlugin;
+import org.apache.cordova.CordovaWebView;
 
+import android.os.Build;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.webkit.WebView;
-import android.os.Build;
-
-import org.apache.cordova.CordovaWebView;
-import org.apache.cordova.CordovaPlugin;
 
 public class AndroidMediaGestureSetting extends CordovaPlugin {
 
@@ -26,7 +27,11 @@ public class AndroidMediaGestureSetting extends CordovaPlugin {
     	}
 
     	try {
-    		webView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_HIDE_NAVIGATION); 
+    		cordova.getActivity().getWindow().clearFlags(WindowManager.LayoutParams.FLAG_FORCE_NOT_FULLSCREEN);
+    		cordova.getActivity().getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+    		WindowManager.LayoutParams.FLAG_FULLSCREEN);
+    		ViewGroup view = (ViewGroup)cordova.getActivity().getWindow().getDecorView();
+    		view.setSystemUiVisibility(View.SYSTEM_UI_FLAG_HIDE_NAVIGATION);
 	        Log.d(LOG_TAG, "tried hiding bar");
     	} catch (Exception e) {
 	        Log.d(LOG_TAG, "hiding bar failed: "+e.getMessage());
