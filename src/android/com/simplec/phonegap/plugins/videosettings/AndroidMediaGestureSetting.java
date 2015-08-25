@@ -25,17 +25,6 @@ public class AndroidMediaGestureSetting extends CordovaPlugin {
     	} catch (Exception e) {
     		
     	}
-
-    	try {
-    		cordova.getActivity().getWindow().clearFlags(WindowManager.LayoutParams.FLAG_FORCE_NOT_FULLSCREEN);
-    		cordova.getActivity().getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
-    		WindowManager.LayoutParams.FLAG_FULLSCREEN);
-    		ViewGroup view = (ViewGroup)cordova.getActivity().getWindow().getDecorView();
-    		view.setSystemUiVisibility(View.SYSTEM_UI_FLAG_HIDE_NAVIGATION);
-	        Log.d(LOG_TAG, "tried hiding bar");
-    	} catch (Exception e) {
-	        Log.d(LOG_TAG, "hiding bar failed: "+e.getMessage());
-    	}
 		
         super.initialize(cordova, webView);
         
