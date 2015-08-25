@@ -6,6 +6,8 @@ import org.apache.cordova.CordovaWebView;
 
 import android.os.Build;
 import android.util.Log;
+import android.view.View;
+import android.webkit.WebSettings;
 
 public class AndroidMediaGestureSetting extends CordovaPlugin {
 
@@ -17,10 +19,20 @@ public class AndroidMediaGestureSetting extends CordovaPlugin {
         
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
 	        webView.getSettings().setMediaPlaybackRequiresUserGesture(false);
-	
+	        
 	        Log.d(LOG_TAG, "setMediaPlaybackRequiresUserGesture: FALSE");
         } else {
 	        Log.d(LOG_TAG, "setMediaPlaybackRequiresUserGesture: COULD NOT RUN");
+        }
+        
+        try {
+	        webView.setLayerType(View.LAYER_TYPE_HARDWARE, null);
+	        webView.getSettings().setRenderPriority(WebSettings.RenderPriority.HIGH);
+
+	        Log.d(LOG_TAG, "hardware acceleration set");
+        } catch (Exception e) {
+        	e.printStackTrace();
+	        Log.d(LOG_TAG, "hardware acceleration failed");
         }
     }
 }
