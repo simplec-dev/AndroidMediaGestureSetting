@@ -6,9 +6,6 @@ import org.apache.cordova.CordovaWebView;
 
 import android.os.Build;
 import android.util.Log;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.WindowManager;
 import android.webkit.WebView;
 
 public class AndroidMediaGestureSetting extends CordovaPlugin {
