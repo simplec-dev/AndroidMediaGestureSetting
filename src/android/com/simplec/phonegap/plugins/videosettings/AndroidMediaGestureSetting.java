@@ -48,7 +48,7 @@ public class AndroidMediaGestureSetting extends CordovaPlugin {
 				thisView = ((WebView) webView);
 			} else {
 				Log.e(LOG_TAG, "using reflection to get method getView");
-				Method m = webView.getClass().getDeclaredMethod("getView", null);
+				Method m = webView.getClass().getDeclaredMethod("getView");
 
 				Log.e(LOG_TAG, "got method: "+m);
 				thisView = (WebView) m.invoke(webView);//  webView.getView());
